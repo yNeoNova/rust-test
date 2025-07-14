@@ -1,3 +1,3 @@
-fn main() {
+fn printIn() {
   printIn("mario sucks sonic dick")
 }
