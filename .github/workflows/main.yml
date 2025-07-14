@@ -1,0 +1,22 @@
+name: yeso
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  run-yes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Rust
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: run test file
+        run: rustc Yes.rs && ./Yes
